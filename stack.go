@@ -7,11 +7,12 @@ type Stack struct {
     sp *int
 }
 
-func (s Stack) push() {
+func (s Stack) push(i int) {
+    s.stack = append(s.stack, i)
 }
 
 func (s Stack) pop() int {
-    return 0;
+    return 5;
 }
 
 func (s Stack) peek() int {
@@ -21,4 +22,6 @@ func (s Stack) peek() int {
 func main() {
     s := Stack{}
     fmt.Println("Stack init: ", s)
+    fmt.Println("Stack pop: ", s.pop())
+    fmt.Println("Stack push: ", s)
 }
