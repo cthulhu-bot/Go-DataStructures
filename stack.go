@@ -32,5 +32,6 @@ func main() {
     fmt.Println("Stack length: ", s.length())
     i := 3
     s.push(i)
-    fmt.Println("Stack push %d: %s", i, s.St)
+    fmt.Print("Stack push ", i)
+    fmt.Println(": ", s.St)
 }
