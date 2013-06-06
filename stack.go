@@ -3,25 +3,33 @@ package main
 import "fmt"
 
 type Stack struct {
-    stack []int
-    sp *int
+    St []int
+}
+
+func newStack(foo []int, bar *int) *Stack {
+    return &Stack{foo}
 }
 
 func (s Stack) push(i int) {
-    s.stack = append(s.stack, i)
+    s.St = append(s.St, i)
 }
 
 func (s Stack) pop() int {
-    return 5;
-}
-
-func (s Stack) peek() int {
     return 0;
 }
 
+func (s Stack) peek() int {
+    return s.St[len(s.St)]
+}
+
+func (s Stack) length() int {
+    return len(s.St)
+}
+
 func main() {
-    s := Stack{}
+    s := Stack{[]int{1,2}}
     fmt.Println("Stack init: ", s)
-    fmt.Println("Stack pop: ", s.pop())
-    fmt.Println("Stack push: ", s)
+    fmt.Println("Stack length: ", s.length())
+    s.push(2)
+    fmt.Println("Stack push: ", s.St)
 }
