@@ -15,7 +15,9 @@ func (s *Stack) push(i int) {
 }
 
 func (s *Stack) pop() int {
-    return 0;
+    ret := (*s).St[len(s.St)-1]
+    (*s).St = s.St[0:len(s.St)-1]
+    return ret
 }
 
 func (s *Stack) peek() int {
@@ -37,4 +39,6 @@ func main() {
     }
     fmt.Println("Stack length: ", s.length())
     fmt.Println("Stack peek: ", s.peek())
+    fmt.Println("Stack pop: ", s.pop())
+    fmt.Println("Stack: ", s.St)
 }
