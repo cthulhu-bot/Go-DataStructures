@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import ("fmt"
+        "math/rand"
+       )
 
 type Stack struct {
     St []int
@@ -30,9 +32,10 @@ func (s *Stack) length() int {
 
 func main() {
     s := Stack{[]int{}}
+    r := rand.Intn(15)
     fmt.Println("Stack init: ", s)
     fmt.Println("Stack length: ", s.length())
-    for i:=0; i<5; i++ {
+    for i:=0; i<r; i++ {
         s.push(i)
         fmt.Print("Stack push ", i)
         fmt.Println(": ", s.St)
