@@ -38,7 +38,9 @@ func main() {
         fmt.Println(": ", s.St)
     }
     fmt.Println("Stack length: ", s.length())
-    fmt.Println("Stack peek: ", s.peek())
-    fmt.Println("Stack pop: ", s.pop())
-    fmt.Println("Stack: ", s.St)
+    for i:=len(s.St);i>0;i-- {
+        fmt.Println("Stack peek: ", s.peek())
+        fmt.Println("Stack pop: ", s.pop())
+        fmt.Println("Stack: ", s.St)
+    }
 }
