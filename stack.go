@@ -19,7 +19,7 @@ func (s *Stack) pop() int {
 }
 
 func (s *Stack) peek() int {
-    return (*s).St[len(s.St)]
+    return (*s).St[len(s.St)-1]
 }
 
 func (s *Stack) length() int {
@@ -27,11 +27,14 @@ func (s *Stack) length() int {
 }
 
 func main() {
-    s := Stack{[]int{1,2}}
+    s := Stack{[]int{}}
     fmt.Println("Stack init: ", s)
     fmt.Println("Stack length: ", s.length())
-    i := 3
-    s.push(i)
-    fmt.Print("Stack push ", i)
-    fmt.Println(": ", s.St)
+    for i:=0; i<5; i++ {
+        s.push(i)
+        fmt.Print("Stack push ", i)
+        fmt.Println(": ", s.St)
+    }
+    fmt.Println("Stack length: ", s.length())
+    fmt.Println("Stack peek: ", s.peek())
 }
