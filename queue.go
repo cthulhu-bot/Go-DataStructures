@@ -1,7 +1,4 @@
-
-// +build main2
-
-package queue
+package main
 
 type Queue struct {
     que []int
@@ -11,7 +8,5 @@ func (q Queue) enqueue(i int) {
 }
 
 func (q Queue) dequeue() int {
-}
-
-func main() {
+    return 0
 }

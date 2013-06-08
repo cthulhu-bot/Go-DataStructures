@@ -1,4 +1,4 @@
-package stack
+package main
 
 import ("fmt"
         "math/rand"
@@ -6,10 +6,6 @@ import ("fmt"
 
 type Stack struct {
     St []int
-}
-
-func newStack(foo []int, bar *int) *Stack {
-    return &Stack{foo}
 }
 
 func (s *Stack) push(i int) {
@@ -32,7 +28,7 @@ func (s *Stack) length() int {
 
 func main() {
     s := Stack{[]int{}}
-    r := rand.Intn(15)
+    r := rand.Intn(12)
     fmt.Println("Stack init: ", s)
     fmt.Println("Stack length: ", s.length())
     for i:=0; i<r; i++ {
