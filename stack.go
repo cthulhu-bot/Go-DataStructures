@@ -26,7 +26,7 @@ func (s *Stack) length() int {
     return len((*s).St)
 }
 
-func main() {
+func test1() {
     s := Stack{[]int{}}
     r := rand.Intn(12)
     fmt.Println("Stack init: ", s)
