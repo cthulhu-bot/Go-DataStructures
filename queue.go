@@ -1,8 +1,9 @@
-package main
 
-import "fmt"
+// +build main2
 
-type struct Queue {
+package queue
+
+type Queue struct {
     que []int
 }
 
