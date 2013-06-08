@@ -2,6 +2,7 @@ package main
 
 import ("fmt"
         "math/rand"
+        "errors"
        )
 
 type Stack struct {
@@ -12,21 +13,29 @@ func (s *Stack) push(i int) {
     (*s).St = append(s.St, i)
 }
 
-func (s *Stack) pop() int {
+func (s *Stack) pop() (int,error) {
+    if len(s.St) == 0 {
+        return 0, errors.New("**ERROR** Attempted to pop an empty stack")
+    }
+
     ret := (*s).St[len(s.St)-1]
     (*s).St = s.St[0:len(s.St)-1]
-    return ret
+    return ret,nil
 }
 
-func (s *Stack) peek() int {
-    return (*s).St[len(s.St)-1]
+func (s *Stack) peek() (int,error) {
+    if len(s.St) == 0 {
+        return 0, errors.New("**ERROR** Stack is empty")
+    }
+
+    return (*s).St[len(s.St)-1],nil
 }
 
 func (s *Stack) length() int {
     return len((*s).St)
 }
 
-func test1() {
+func main() {
     s := Stack{[]int{}}
     r := rand.Intn(12)
     fmt.Println("Stack init: ", s)
@@ -38,8 +47,31 @@ func test1() {
     }
     fmt.Println("Stack length: ", s.length())
     for i:=len(s.St);i>0;i-- {
-        fmt.Println("Stack peek: ", s.peek())
-        fmt.Println("Stack pop: ", s.pop())
+        p,err := s.peek()
+        if err != nil {
+            fmt.Println(err)
+        } else {
+            fmt.Println("Stack peek: ", p)
+        }
+        po,err := s.pop()
+        if err != nil {
+            fmt.Println(err)
+        } else {
+            fmt.Println("Stack pop: ", po)
+        }
         fmt.Println("Stack: ", s.St)
     }
+    p,err := s.peek()
+    if err != nil {
+        fmt.Println(err)
+    } else {
+        fmt.Println("Stack peek: ", p)
+    }
+    po,err := s.pop()
+    if err != nil {
+        fmt.Println(err)
+    } else {
+        fmt.Println("Stack pop: ", po)
+    }
+    fmt.Println("Stack: ", s.St)
 }

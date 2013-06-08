@@ -28,7 +28,7 @@ func (q *Queue) dequeue() (int, error) {
     return ret, nil
 }
 
-func main() {
+func foo() {
     q := Queue{[]int{}}
 
     fmt.Println("Enqueue: 2")
