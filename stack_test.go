@@ -25,8 +25,11 @@ func Test_push_1 (t *testing.T) {
 func Test_pop_2 (t *testing.T) {
     s := Stack{[]int{1,2}}
 
-    if s.pop() == 2 {
+    v,err := s.pop()
+    if v == 2 && err == nil{
         t.Log("pop:     --test2 passed")
+    } else if err != nil {
+        t.Log(err)
     } else {
         t.Error("Error in Stack.Pop")
     }
@@ -35,8 +38,11 @@ func Test_pop_2 (t *testing.T) {
 func Test_peek_3 (t *testing.T) {
     s := Stack{[]int{5,6}}
 
-    if s.peek() == 6 {
+    v,err := s.peek()
+    if v == 6 && err == nil {
         t.Log("peek:    --test3 passed")
+    } else if err != nil {
+        t.Log(err)
     } else {
         t.Error("Error in Stack.Peek")
     }
