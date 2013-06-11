@@ -9,7 +9,17 @@ type Node struct {
     next *Node
 }
 
+type LinkedList struct {
+    head *Node
+}
+
+func (l *LinkedList) add(n Node) {
+}
+
 func main() {
-    n := Node{0,nil}
-    fmt.Println("linked-list")
+    list := new (LinkedList)
+//    n := Node{0,}
+
+//    list.add(n)
+    fmt.Println("linked-list: ", list)
 }
