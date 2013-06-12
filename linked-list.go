@@ -60,6 +60,9 @@ func (l *LinkedList) removeData(dat int) (error) {
     return nil
 }
 
+func (l *LinkedList) removeNode(position int) (error) {
+}
+
 func (l *LinkedList) print() {
     if (*l).head == nil {
         fmt.Println("**WARNING** Printing out an empty list")
