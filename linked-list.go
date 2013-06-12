@@ -2,7 +2,6 @@ package main
 
 import (
         "fmt"
-        "errors"
 )
 
 type Node struct {
@@ -27,7 +26,22 @@ func (l *LinkedList) add(n Node) {
     (*ptr).next = &n
 }
 
-func (l *LinkedList) remove(dat int) {
+func (l *LinkedList) dataInList(dat int) bool {
+    ptr := (*l).head
+
+    for (*ptr).next != nil {
+        if (*ptr).data == dat { return true }
+        ptr = (*ptr).next
+    }
+    if (*ptr).data == dat { return true }
+    return false
+}
+
+func (l *LinkedList) removeData(dat int) (error) {
+    if !l.dataInList(dat) {
+        err := fmt.Errorf("**ERROR** Data: %d not found in list",dat)
+        return err
+    }
 
     if (*l).head.data == dat {
         (*l).head = (*l).head.next
@@ -35,21 +49,21 @@ func (l *LinkedList) remove(dat int) {
 
     ptr := (*l).head
     for (*ptr).next != nil {
-        fmt.Println("ptr.next: ",(*ptr).next)
-        fmt.Println("ptr.next.data: ",(*ptr).next.data)
-        if (*ptr).next.data == dat && (*ptr).next.next == nil {
-            (*ptr).next = nil
-        }
         if (*ptr).next.data == dat && (*ptr).next.next != nil {
             (*ptr).next = (*ptr).next.next
+        } else if (*ptr).next.data == dat && (*ptr).next.next == nil {
+            (*ptr).next = nil
+            return nil
         }
         ptr = (*ptr).next
     }
+    return nil
 }
 
-func (l *LinkedList) print() (error) {
+func (l *LinkedList) print() {
     if (*l).head == nil {
-        return errors.New("**WARNING** Printing out an empty list")
+        fmt.Println("**WARNING** Printing out an empty list")
+        return
     }
 
     ptr := (*l).head
@@ -59,7 +73,7 @@ func (l *LinkedList) print() (error) {
         ptr = (*ptr).next
     }
     fmt.Println("Node", (*ptr).data)
-    return nil
+    return
 }
 
 func main() {
@@ -78,13 +92,11 @@ func main() {
     fmt.Println("add node: ", n)
     list.add(n)
 
-    err := list.print()
-    if err != nil {
-        fmt.Println(err)
-    }
+    list.print()
 
-    list.remove(4)
-    err = list.print()
+    err := list.removeData(3)
+    list.print()
+    err = list.removeData(5)
     if err != nil {
         fmt.Println(err)
     }
