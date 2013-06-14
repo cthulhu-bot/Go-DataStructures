@@ -4,12 +4,19 @@ import (
         "fmt"
 )
 
-func insertionSort([]int) {
+func insertionSort(input []int) []int {
+    fmt.Println("Input: ", input)
+//    output := [len(input)]int{}
+    for p:=1; p < len(input); p++ {
+    }    
+    
+    return input
 }
 
 func main() {
-    dat := []int{1,2,3,4,5}
+    dat := []int{5,12,3,9,18}
 
-    fmt.Println(dat)
+    ret := insertionSort(dat)
+    fmt.Println("Final Sort: ", ret)
 }
 

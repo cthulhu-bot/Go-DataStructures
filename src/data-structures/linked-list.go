@@ -76,7 +76,7 @@ func (l *LinkedList) print() {
     return
 }
 
-func main() {
+func foo() {
     list := new (LinkedList)
     fmt.Println("linked-list: ", list)
     n := Node{1,nil}

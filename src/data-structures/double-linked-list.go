@@ -15,6 +15,6 @@ type DoubleLinkedList struct {
     tail *Node
 }
 
-func main() {
+func foo() {
     fmt.Println("Double linked list")
 }
