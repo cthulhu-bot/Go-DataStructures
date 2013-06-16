@@ -28,14 +28,20 @@ func insertionSort(input []int) ([]int, error) {
                 fmt.Println("Current output state: ",output)
                 fmt.Println("Slice from j to length: ", output[j:len(output)])
 //                fmt.Println("BackHalf: ", backHalf)
+                fmt.Println("Current output state: ",output)
                 backHalf := output[j:len(output)]
+                fmt.Println("Current output state: ",output)
                 fmt.Println("BackHalf: ", backHalf)
+                fmt.Println("Current output state: ",output)
+
+                // THIS LINE BREAKS SHIT AND CHANGES output (WTF)
                 frontHalf := append(output[0:j],tmp)
 //                fmt.Printf("Compare input: %d to sort position: %d\n",tmp,output[j])
+                fmt.Println("Current output state: ",output)
                 fmt.Println("FrontHalf: ", frontHalf)
+                fmt.Println("Current output state: ",output)
                 output = append(frontHalf,backHalf...)
                 insertted = true
-                j++
             }
 
             fmt.Println("temp output: ", output)
@@ -53,7 +59,7 @@ func insertionSort(input []int) ([]int, error) {
 }
 
 func main() {
-    dat := []int{5,12,3,9,18}
+    dat := []int{5,12,3}
 
     ret,err := insertionSort(dat)
     if err != nil {
