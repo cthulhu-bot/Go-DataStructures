@@ -1,0 +1,22 @@
+package main
+
+import (
+        "fmt"
+)
+
+func main() {
+    foo := []int{5,12}
+    bar := 3
+
+    for j < len(foo) {
+        if bar > foo[j] {
+            j++
+        }
+        else if tmp < foo[j] {
+            backHalf := foo[j:len(foo)]
+            frontHalf := append(foo[0:j],bar)
+        }
+    }
+
+    fmt.Println(foo)
+}
