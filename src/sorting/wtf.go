@@ -19,8 +19,11 @@ func main() {
             fmt.Printf("foo[%d] = %d\n",j,foo[j])
             fmt.Println("foo: ",foo)
             fmt.Printf("foo[0:%d] = %d\n",j,foo[0:j])
+            fmt.Printf("foo[:%d] = %d\n",j,foo[:j])
+            fmt.Printf("foo[1:1] = %d\n",foo[1:1])
 
             fmt.Println("foo: ",foo)
+            fmt.Println("bar: ",bar)
 
             //This line breaks stuff (WTF)
             fmt.Printf("append(foo[0:%d],bar) = %d\n",j,append(foo[0:j],bar))
