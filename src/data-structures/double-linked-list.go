@@ -34,6 +34,9 @@ func (d *DoubleLinkedList) containsCycle() bool {
 }
 
 func (d *DoubleLinkedList) print() {
+    if (*d).head == nil || (*d).tail == nil {
+        fmt.Println("**Empty list**")
+    }
 }
 
 func main() {
