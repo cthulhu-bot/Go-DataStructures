@@ -5,25 +5,35 @@ import (
 )
 
 func bubbleSort(input []int) ([]int) {
-    ptr := &input[0]
-    // Wont work with negative inputs
-    lastNum := 0
-    for i:=0; i <= len(input); i++ {
-        if i == len(input) {
-            fmt.Println("Reached the end")
-            return input
-        } else if input[i] > lastNum {
-            *ptr = input[i]
-            input[i] = lastNum
+    for !isSorted(input) {
+        ptr := &input[0]
+        // Wont work with negative inputs
+        lastNum := 0
+        for i:=0; i < len(input); i++ {
+            if i == len(input) {
+                fmt.Println("Reached the end")
+                return input
+            } else if input[i] < lastNum {
+                *ptr = input[i]
+                input[i] = lastNum
+            }
+            lastNum = input[i]
+            ptr = &input[i]
         }
-        lastNum = input[i]
-        ptr = &input[i]
     }
     return input
 }
 
-func isSorted() (bool) {
-    return false
+func isSorted(input []int) (bool) {
+    ptr := &input[0]
+    for i:=1; i < len(input); i++ {
+        curr := input[i]
+        if curr < *ptr {
+            return false
+        }
+        ptr = &input[i]
+    }
+    return true
 }
 
 func main() {
