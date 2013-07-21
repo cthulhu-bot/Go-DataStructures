@@ -1,7 +1,7 @@
 package main
 
 import (
-    "testing
+    "testing"
 )
 
 func Test_sort_already_sorted (t *testing.T) {
