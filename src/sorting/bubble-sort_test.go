@@ -6,8 +6,8 @@ import (
 
 func Test_sort_already_sorted (t *testing.T) {
     ints := []int{1,2,3,4,5}
-    b := bubbleSort(ints)
-    if b == ints {
+    b := BubbleSort
+    if b.sort(ints) == ints {
         t.Log("bubbleSort:  --test1 passed")
     } else {
         t.Error("Error in bubbleSort: Test_sort_already_sorted")

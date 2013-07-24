@@ -4,7 +4,10 @@ import (
         "fmt"
 )
 
-func bubbleSort(input []int) ([]int) {
+type BubbleSort struct {
+}
+
+func (b *BubbleSort) sort(input []int) ([]int) {
     for !isSorted(input) {
         ptr := &input[0]
         // Wont work with negative inputs
@@ -39,6 +42,8 @@ func isSorted(input []int) (bool) {
 func main() {
     dat := []int{5,12,18,2,7,9,1,15,8,11}
 
-    ret := bubbleSort(dat)
+    b := BubbleSort{}
+
+    ret := b.sort(dat)
     fmt.Println("Final Sort: ", ret)
 }
