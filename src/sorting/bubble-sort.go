@@ -41,6 +41,7 @@ func isSorted(input []int) (bool) {
 
 func main() {
     dat := []int{5,12,18,2,7,9,1,15,8,11}
+    fmt.Println("Original Array: ", dat)
 
     b := BubbleSort{}
 
