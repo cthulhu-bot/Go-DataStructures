@@ -1,4 +1,4 @@
-package main
+package bubbleSort
 
 import (
         "fmt"
@@ -7,7 +7,7 @@ import (
 type BubbleSort struct {
 }
 
-func (b *BubbleSort) sort(input []int) ([]int) {
+func bubbleSort(input []int) ([]int) {
     for !isSorted(input) {
         ptr := &input[0]
         // Wont work with negative inputs
