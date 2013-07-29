@@ -23,6 +23,8 @@ func (b *BinaryTree) isBalanced() (bool) {
 }
 
 func main() {
-//    tree := new (BinaryTree)
-    fmt.Println("Eat a dick")
+    tree := new (BinaryTree)
+    n := Node{3,nil,nil}
+    fmt.Println("add node: ", n)
+    tree.add(n)
 }
